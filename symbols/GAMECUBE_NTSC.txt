@@ -1,0 +1,144 @@
+OSReport = 0x8026226C;
+OSPanic = 0x802622ec;
+
+Mat44T_Mult_Vec4 = 0x80339a04;
+EXMaths__mat_44__set_rotate = 0x803146e0;
+EXMaths__mat_44__set_rotate_axis = 0x803145fc;
+
+gMapList = 0x8046ee54;
+SE_MapList__m_gNumMaps = 0x804cb608;
+
+classTrigger_SpecialBase = 0x803b4ee4;
+
+gpGamePad = 0x804CB3C0;
+g_PadNum = 0x804cb660;
+
+RGBA_Interp = 0x80130a00;
+
+Util_GetGameInfoTexture = 0x802506b4;
+
+EXBaseDisplay__m_pDisplay = 0x804cba84;
+
+gpGameWnd = 0x804cb3cc;
+gpPanelWnd = 0x804cb3d0;
+
+gpGeoHT_File_Panel = 0x804cb3c4;
+
+gTextBuffer = 0x804564b0;
+
+EXBaseWnd__SelectFont = 0x80302e90;
+
+XWnd__SetText = 0x8012f8dc;
+XWnd__FontPrintW = 0x801335fc;
+XWnd__FontPrint = 0x80134a34;
+XWnd__AddDrawSELoop_Tail = 0x8012f4ac;
+
+XWnd__TextPrintH = 0x8012f6e0;
+XWnd__TextPrintC = 0x8012f72c;
+XWnd__TextPrintW = 0x8012f804;
+
+XWnd__DrawGraduatedRectOutline = 0x80130b50;
+XWnd__DrawRect = 0x8012f688;
+XWnd__DrawRectOutline = 0x8012f6b4;
+XWnd__DrawSector = 0x80250848;
+XWnd__DrawTextureBox = 0x8012fa14;
+
+wnd_drawing_buffer = 0x803D8FB0;
+
+EXWnd__DrawLine = 0x8031c588;
+EXWnd__DrawTriFan = 0x8031c838;
+EXWnd__DrawTriStrip = 0x8031c7f8;
+EXWnd__SelectTriFanTexture = 0x8031b938;
+
+theGameFlow = 0x80455b8c;
+SEGameFlow__v_StateRunning = 0x8012da80;
+
+gGameLoop = 0x8046f2f0;
+
+SE_GameLoop__GameSetPauseOn = 0x802400c8;
+SE_GameLoop__GameSetPauseOff = 0x80240164;
+
+SE_Loop__virtual_table = 0x80447330;
+SE_Loop__CreateObject = 0x8022f524;
+SE_Loop__DrawStateRunning = 0x80243a90;
+SE_Loop__ChildListDraw = 0x80230098;
+SE_Loop__Cue = 0x80230664;
+SE_Loop__CueRun = 0x802306a8;
+SE_Loop__CueChildLoop = 0x8022ff18;
+SE_Loop__AddDrawToXWnd = 0x80230068;
+
+GUI_Base_virtual_table = 0x8042e408;
+
+GUI_Base__CreateObject = 0x801a5be0;
+GUI_Base__Update = 0x801a69c0;
+GUI_Base__v_Draw = 0x801a67ac;
+
+theItemEnv = 0x8046f5f0;
+XSEItemEnv__AddXSEItem = 0x802409d0;
+XSEItem__CreateObject = 0x8023e070;
+EXItem__AddAnimator = 0x802a0a58;
+EXItemAnimator__CreateFrom = 0x802a1758;
+EXGeoFile__GetGeoFile = 0x80291810;
+
+gPlayerLoader = 0x804cc464;
+
+gSEFileManager = 0x804606f8;
+SE_FileManager__IsGeoLoaded = 0x8022db20;
+
+PlayerLoader__PreLoad = 0x80060ba4;
+PlayerLoader__IsLoaded = 0x80060be0;
+PlayerLoader__AcknowledgePreLoad = 0x80060c14;
+PlayerLoader__DeLoad = 0x80060c74;
+PlayerLoader__CanelPreLoad = 0x80060cac;
+
+gpPlayer = 0x804cb35c;
+gpPlayerItem = 0x804cb360;
+
+XSEItemhandler_Player__ChangePlayer = 0x8005bb10;
+XSEItemhandler_Player__GetPlayersFileList = 0x80060b18;
+
+acosf = 0x802573e4;
+asinf = 0x80257630;
+atan2f = 0x8025785c;
+fmodf = 0x80257a7c;
+powf = 0x80257c44;
+sqrtf = 0x80258338;
+atanf = 0x80258430;
+ceilf = 0x80258640;
+cosf = 0x80258704;
+fabsf = 0x802587e0;
+floorf = 0x80258804;
+sinf = 0x802588cc;
+tanf = 0x802589a8;
+scalbnf = 0x80258a28;
+
+strcasecmp = 0x80259f24;
+strcmp = 0x80259fa0;
+strcpy = 0x8025a048;
+strlen = 0x8025a0cc;
+strncpy = 0x8025a138;
+strupr = 0x8025a204;
+strrev = 0x8025a2cc;
+strcat = 0x80359da4;
+strncat = 0x80359e34;
+strncmp = 0x80359ee0;
+strstr = 0x80359fc0;
+
+Wcscpy = 0x802fbe30;
+
+memcpy = 0x80259d00;
+memmove = 0x80259da4;
+memset = 0x80259e90;
+memcmp = 0x80359d14;
+
+printf = 0x803592a8;
+vprintf = 0x80359354;
+sprintf = 0x80259af8;
+vsprintf = 0x80259bd0;
+
+g_EXRandClass = 0x804cc854;
+EXRandClass__Rand32 = 0x802f50a8;
+EXRandClass__Randf = 0x802f50e0;
+g_EXRandFastClass = 0x804cc850;
+
+PlaySFX = 0x8024bc58;

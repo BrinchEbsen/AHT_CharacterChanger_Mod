@@ -1,0 +1,1 @@
+b XSEItemHandler_Player__TestScanMode_HOOK

@@ -1,0 +1,157 @@
+{
+  "version": "1.0",
+  "project_name": "CharacterChanger",
+  "project_folder": "./",
+  "currently_selected_build_index": 0,
+  "build_versions": [
+    {
+      "build_name": "GAMECUBE_NTSC",
+      "platform": "Gamecube",
+      "symbols_file": "GAMECUBE_NTSC.txt",
+      "injection_files": [
+        "Start.dol"
+      ],
+      "injection_file_offsets": {
+        "Start.dol": "3000"
+      },
+      "injection_file_types": {
+        "Start.dol": "disk"
+      },
+      "extracted_game_folder": "C:/Users/Ebbers/Documents/GC_CodeInject/modding_utility_v2/game_files/GAMECUBE_NTSC\\root",
+      "main_executable": "Start.dol",
+      "source_path": "C:/Users/Ebbers/Documents/GC_CodeInject/modding_utility_v2/game_files/GAMECUBE_NTSC",
+      "compiler_flags": "-O2 -I include/ingame_stdlib/ -I include/se/ -I include/ex/ -Werror",
+      "is_single_file_mode": false,
+      "single_file_path": null,
+      "section_maps": {
+        "Start.dol": [
+          {
+            "section_type": "text",
+            "file_offset": 256,
+            "mem_start": 12544,
+            "mem_end": 13472,
+            "size": 928
+          },
+          {
+            "section_type": "text",
+            "file_offset": 1184,
+            "mem_start": 13472,
+            "mem_end": 3882912,
+            "size": 3869440
+          },
+          {
+            "section_type": "data",
+            "file_offset": 3870624,
+            "mem_start": 3882912,
+            "mem_end": 3883136,
+            "size": 224
+          },
+          {
+            "section_type": "data",
+            "file_offset": 3870848,
+            "mem_start": 3883136,
+            "mem_end": 4054080,
+            "size": 170944
+          },
+          {
+            "section_type": "data",
+            "file_offset": 4041792,
+            "mem_start": 4054080,
+            "mem_end": 4496736,
+            "size": 442656
+          },
+          {
+            "section_type": "data",
+            "file_offset": 4484448,
+            "mem_start": 5026592,
+            "mem_end": 5030976,
+            "size": 4384
+          },
+          {
+            "section_type": "data",
+            "file_offset": 4488832,
+            "mem_start": 5033760,
+            "mem_end": 5037184,
+            "size": 3424
+          }
+        ]
+      },
+      "code_caves": [
+        {
+          "name": "EXGeoViewerWnd_Overwrite",
+          "code_files": [
+            "./src/main.c",
+            "./src/pad.c",
+            "./src/paneldraw.c",
+            "./src/se/wnd.c",
+            "./src/gamedraw.c",
+            "./src/arena.c",
+            "./src/characterchanger.c",
+            "./src/se/player.c"
+          ],
+          "memory_address": "80296618",
+          "size": "7dcc",
+          "injection_file": "Start.dol",
+          "injection_file_address": "0x293618",
+          "auto_calculate_injection_file_address": true,
+          "injection_type": "existing_file",
+          "enabled": true
+        },
+        {
+          "name": "Shark_Overwrite",
+          "code_files": [
+            "./src/ex/exvector.c",
+            "./src/ex/runtimeclass.c"
+          ],
+          "memory_address": "801858c0",
+          "size": "1d64",
+          "injection_file": "Start.dol",
+          "injection_file_address": "0x1828C0",
+          "auto_calculate_injection_file_address": true,
+          "injection_type": "existing_file",
+          "enabled": true
+        }
+      ],
+      "hooks": [
+        {
+          "name": "Player_GameWndDraw_Replace",
+          "code_files": [
+            "./asm/Player_GameWndDraw_Replace.s"
+          ],
+          "memory_address": "80131e28",
+          "size": "0",
+          "injection_file": "Start.dol",
+          "injection_file_address": "0x12EE28",
+          "auto_calculate_injection_file_address": true,
+          "enabled": true
+        },
+        {
+          "name": "Player_TestScanMode_Hook",
+          "code_files": [
+            "./asm/Player_TestScanMode_Hook.s"
+          ],
+          "memory_address": "8005c954",
+          "size": "0",
+          "injection_file": "Start.dol",
+          "injection_file_address": "0x59954",
+          "auto_calculate_injection_file_address": true,
+          "enabled": false
+        },
+        {
+          "name": "SEGameFlow_StateRunning_Hook",
+          "code_files": [
+            "./asm/SEGameFlow_StateRunning_VTHook.s"
+          ],
+          "memory_address": "804173a0",
+          "size": "0",
+          "injection_file": "Start.dol",
+          "injection_file_address": "0x4143A0",
+          "auto_calculate_injection_file_address": true,
+          "enabled": true
+        }
+      ],
+      "binary_patches": [],
+      "multi_patches": []
+    }
+  ]
+}
