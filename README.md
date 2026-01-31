@@ -5,6 +5,9 @@ Sgt. Byrd and Sparx will crash the game if they die outside of a minigame level.
 
 Created using Composer's [code injection utility](https://github.com/C0mposer/C-Game-Modding-Utility).
 
+## Compatibility
+Currently only compatible with the GameCube US version (G5SE7D).
+
 ## Usage
 Double-press Z to open the menu. Double-press Z again or press B to close the menu.
 
