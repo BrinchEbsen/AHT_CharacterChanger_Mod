@@ -9,7 +9,7 @@
 
 // ==================== Type Definitions ====================
 
-typedef unsigned char           u8, uint8_t, byte, uchar, undefined1;
+typedef unsigned char           u8, uint8_t, byte, uchar, undefined1, undefined;
 typedef signed char             s8, int8_t;
 typedef unsigned short int      u16, uint16_t, ushort, undefined2, wchar16;
 typedef signed short int        s16, int16_t;

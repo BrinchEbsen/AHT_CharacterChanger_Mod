@@ -12,6 +12,9 @@
 #include <os.h>
 #include <Sound.h>
 #include <sfx.h>
+#include <playerstate.h>
+#include <gamestate.h>
+#include <player.h>
 
 bool do_characterchanger_menu = false;
 
@@ -97,6 +100,11 @@ void characterchanger_update(void)
         return;
     }
 
+    // Toggle scanmode
+    if (g_pad_button_edge_down(PAD_BUTTON_X)) {
+        g_enable_scanmode = !g_enable_scanmode;
+    }
+
     // Toggle menu with z double-press (exit can be done with B)
     if ((z_double_press || g_pad_button_edge_down(PAD_BUTTON_B)) && do_characterchanger_menu) {
         do_characterchanger_menu = false;
@@ -119,7 +127,11 @@ void characterchanger_update(void)
         // if the last player that was requested preloaded is loaded yet.
         // Thanks Eurocom
         if (PlayerLoader__IsLoaded(&gPlayerLoader, player_to_load)) {
+            s32 lvl_index = gGameState.m_PlayerState.m_Setup.m_MapListIndex;
+            MiniGameID mini_id = gGameState.m_PlayerState.m_Setup.m_MiniGameID;
             XSEItemhandler_Player__ChangePlayer(player_to_load, false);
+            gGameState.m_PlayerState.m_Setup.m_MapListIndex = lvl_index;
+            gGameState.m_PlayerState.m_Setup.m_MiniGameID = mini_id;
 
             player_to_load = Player_Undefined;
             do_characterchanger_menu = false;
@@ -168,7 +180,7 @@ void characterchanger_drawhud(void *pWnd)
     static int text_spacing = 22;
     static int text_buffer = 5;
     static int menu_offs_x = 10;
-    static int menu_offs_y = 100;
+    static int menu_offs_y = 160;
 
     EXRect menu_rect = {
         .x = menu_offs_x,
@@ -239,5 +251,13 @@ void characterchanger_drawhud(void *pWnd)
 
     if (player_to_load != Player_Undefined) {
         TEXT_PRINT_COLOR(pWnd, text_pos_x, text_pos_y+10, COLOR_WHITE, "Loading...");
+    }
+
+    if (g_enable_scanmode) {
+        TEXT_PRINT_ALIGN_COLOR(pWnd, 0, 0, BottomRight, COLOR_WHITE,
+            "~B: Scanmode enable: Yes\nToggle: Hold any d-pad dir, press ~S");
+    } else {
+        TEXT_PRINT_ALIGN_COLOR(pWnd, 0, 0, BottomRight, COLOR_WHITE,
+            "~B: Scanmode enable: No\n ");
     }
 }

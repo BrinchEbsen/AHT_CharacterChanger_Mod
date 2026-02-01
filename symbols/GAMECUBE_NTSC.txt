@@ -97,6 +97,8 @@ gpPlayerItem = 0x804cb360;
 XSEItemhandler_Player__ChangePlayer = 0x8005bb10;
 XSEItemhandler_Player__GetPlayersFileList = 0x80060b18;
 
+XSEItemHandler_Blinky__urghhhImDead = 0x80020ebc;
+
 acosf = 0x802573e4;
 asinf = 0x80257630;
 atan2f = 0x8025785c;
@@ -142,3 +144,5 @@ EXRandClass__Randf = 0x802f50e0;
 g_EXRandFastClass = 0x804cc850;
 
 PlaySFX = 0x8024bc58;
+
+gGameState = 0x80463b38;

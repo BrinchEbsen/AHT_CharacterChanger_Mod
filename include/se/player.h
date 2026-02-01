@@ -2,6 +2,8 @@
 #define PLAYER_H
 #include <types.h>
 
+extern bool g_enable_scanmode;
+
 typedef enum Players {
     Player_Undefined=0,
     Player_Spyro=1,
@@ -161,6 +163,14 @@ typedef enum eMoveFlags {
 	mf_SuperCharge = 262144
 } eMoveFlags;
 
+typedef enum BreathType {
+    fire=1,
+    water=2,
+    ice=4,
+    elec=8,
+    all_types=63
+} BreathType;
+
 extern void* gpPlayer;
 extern void* gpPlayerItem;
 
@@ -171,9 +181,11 @@ extern void* gpPlayerItem;
 
 // Runs when the game wants to test if the player should enter "Scanmode" (free-fly around through walls).
 // Normally always returns false. Return true to toggle it on/off (from a button press for example).
-bool XSEItemHandler_Player__TestScanMode_HOOK(void* player, int current_mode);
+extern bool XSEItemHandler_Player__TestScanMode_HOOK(void* player, int current_mode);
 
-void XSEItemhandler_Player__ChangePlayer(Players player, Bool incutscene);
-EXHashCode* XSEItemhandler_Player__GetPlayersFileList(Players player);
+extern void XSEItemhandler_Player__ChangePlayer(Players player, Bool incutscene);
+extern EXHashCode* XSEItemhandler_Player__GetPlayersFileList(Players player);
+
+extern void XSEItemHandler_Blinky__urghhhImDead(void* self);
 
 #endif /* PLAYER_H */

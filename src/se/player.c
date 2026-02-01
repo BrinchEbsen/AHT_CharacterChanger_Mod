@@ -1,8 +1,14 @@
 #include <player.h>
 #include <pad.h>
 
+bool g_enable_scanmode = false;
+
 bool XSEItemHandler_Player__TestScanMode_HOOK(void *player, int current_mode)
 {
+    if (!g_enable_scanmode) {
+        return false;
+    }
+
     bool dpad_held = g_pad_button_state(
         PAD_BUTTON_DPAD_DOWN |
         PAD_BUTTON_DPAD_LEFT |
