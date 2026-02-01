@@ -120,6 +120,7 @@ void characterchanger_update(void)
     // Toggle scanmode
     if (g_pad_button_edge_down(PAD_BUTTON_X)) {
         g_enable_scanmode = !g_enable_scanmode;
+        PlaySFX(HT_Sound_SFX_GEN_HUD_NPC_CHOOSE);
     }
 
     if (player_to_load != Player_Undefined) {
