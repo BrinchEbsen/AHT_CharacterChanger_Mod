@@ -100,11 +100,6 @@ void characterchanger_update(void)
         return;
     }
 
-    // Toggle scanmode
-    if (g_pad_button_edge_down(PAD_BUTTON_X)) {
-        g_enable_scanmode = !g_enable_scanmode;
-    }
-
     // Toggle menu with z double-press (exit can be done with B)
     if ((z_double_press || g_pad_button_edge_down(PAD_BUTTON_B)) && do_characterchanger_menu) {
         do_characterchanger_menu = false;
@@ -121,6 +116,11 @@ void characterchanger_update(void)
     }
 
     // At this point, do menu logic
+
+    // Toggle scanmode
+    if (g_pad_button_edge_down(PAD_BUTTON_X)) {
+        g_enable_scanmode = !g_enable_scanmode;
+    }
 
     if (player_to_load != Player_Undefined) {
         // Note: IsLoaded disregards the player parameter and simply checks
@@ -255,9 +255,9 @@ void characterchanger_drawhud(void *pWnd)
 
     if (g_enable_scanmode) {
         TEXT_PRINT_ALIGN_COLOR(pWnd, 0, 0, BottomRight, COLOR_WHITE,
-            "~B: Scanmode enable: Yes\nToggle: Hold any d-pad dir, press ~S");
+            "~B: Scanmode enable: Yes\nToggle: Hold any d-pad dir, press ~S\n ");
     } else {
         TEXT_PRINT_ALIGN_COLOR(pWnd, 0, 0, BottomRight, COLOR_WHITE,
-            "~B: Scanmode enable: No\n ");
+            "~B: Scanmode enable: No\n \n ");
     }
 }
