@@ -148,46 +148,15 @@
           "injection_file_address": "0x4143A0",
           "auto_calculate_injection_file_address": true,
           "enabled": true
-        },
-        {
-          "name": "HunterDeathReplace",
-          "code_files": [
-            "./asm/JumpToBlinkDeath.s"
-          ],
-          "memory_address": "80047f4c",
-          "size": "0",
-          "injection_file": "Start.dol",
-          "injection_file_address": "0x44F4C",
-          "auto_calculate_injection_file_address": true,
-          "enabled": true
-        },
-        {
-          "name": "SpyroDeathReplace",
-          "code_files": [
-            "./asm/JumpToBlinkDeath_1.s"
-          ],
-          "memory_address": "800a31b0",
-          "size": "0",
-          "injection_file": "Start.dol",
-          "injection_file_address": "0xA01B0",
-          "auto_calculate_injection_file_address": true,
-          "enabled": true
-        },
-        {
-          "name": "SgtByrdDeathReplace",
-          "code_files": [
-            "./asm/JumpToBlinkDeath_2.s"
-          ],
-          "memory_address": "8007c440",
-          "size": "0",
-          "injection_file": "Start.dol",
-          "injection_file_address": "0x79440",
-          "auto_calculate_injection_file_address": true,
-          "enabled": true
         }
       ],
       "binary_patches": [],
-      "multi_patches": []
+      "multi_patches": [
+        {
+          "name": "multi_JumpToBlinkDeath",
+          "file_path": "./asm/multi_JumpToBlinkDeath.s"
+        }
+      ]
     }
   ]
 }

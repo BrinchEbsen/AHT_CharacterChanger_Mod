@@ -64,6 +64,7 @@ build/*
 
 # Generated files
 .config/*
+asm/.generated/*
 
 # VSCode tasks
 .vscode/tasks.json
