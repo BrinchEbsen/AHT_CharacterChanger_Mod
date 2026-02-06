@@ -5,6 +5,33 @@
 #include <player.h>
 #include <camera.h>
 
+#define ABILITY_DOUBLE_JUMP         0x1
+#define ABILITY_HIT_POINT_UPGRADE   0x4
+#define ABILITY_POLE_SPIN           0x10
+#define ABILITY_ICE_BREATH          0x20
+#define ABILITY_ELECTRIC_BREATH     0x40
+#define ABILITY_WATER_BREATH        0x80
+#define ABILITY_DOUBLE_GEM          0x200
+#define ABILITY_AQUA_LUNG           0x800
+#define ABILITY_SUPERCHARGE         0x1000
+#define ABILITY_INVINCIBILITY       0x2000
+#define ABILITY_BOUGHT_LOCK_PICK    0x4000
+#define ABILITY_WING_SHIELD         0x8000
+#define ABILITY_WALL_KICK           0x10000
+#define ABILITY_HORN_DIVE_UPGRADE   0x20000
+#define ABILITY_BUTTERFLY_JAR       0x40000
+
+#define ABILITY_ALL_PERMANENT_ABILITIES \
+    ABILITY_DOUBLE_JUMP |\
+    ABILITY_HIT_POINT_UPGRADE |\
+    ABILITY_POLE_SPIN |\
+    ABILITY_ICE_BREATH |\
+    ABILITY_ELECTRIC_BREATH |\
+    ABILITY_WATER_BREATH |\
+    ABILITY_BOUGHT_LOCK_PICK |\
+    ABILITY_WING_SHIELD |\
+    ABILITY_HORN_DIVE_UPGRADE
+
 typedef enum MiniGameID {
     MiniGameID_Undefined=0,
     MiniGameID_NoMiniGame=1,
