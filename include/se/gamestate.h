@@ -67,10 +67,10 @@ typedef struct SE_GameState {
     XAppTime m_StartTime;
     float m_PlayTimer;
     float m_TimeOutTimer;
-    u8 _pad0[4];
     PlayerState m_PlayerState;
     PlayerObjectives m_PlayerObjectives;
     PlayerTasks m_PlayerTasks;
+    u8 _pad0[4];
     PlayerShop m_PlayerShop;
     SE_BitHeap m_BitHeap;
     GameState__SE_Map m_Map[200];
