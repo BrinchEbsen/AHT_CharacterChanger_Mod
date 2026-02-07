@@ -220,48 +220,38 @@ void do_character_menu(void)
 
 void do_cheats_menu(void)
 {
-    switch ((CheatsMenuOption)curr_cheats_option) {
-        case CheatsOption_AllAbilities: {
-            if (g_pad_button_edge_down(PAD_BUTTON_A)) {
-                gGameState.m_PlayerState.m_AbilityFlags |= ABILITY_ALL_PERMANENT_ABILITIES;
-            }
-        } break;
-        case CheatsOption_InfiniteLockPicks: {
-            if (g_pad_button_edge_down(PAD_BUTTON_A)) {
-                cheat_infinite_lockpicks = !cheat_infinite_lockpicks;
-            }
-        } break;
-        case CheatsOption_InfiniteHealth: {
-            if (g_pad_button_edge_down(PAD_BUTTON_A)) {
-                cheat_infinite_health = !cheat_infinite_health;
-            }
-        } break;
-        case CheatsOption_InfiniteBreathAmmo: {
-            if (g_pad_button_edge_down(PAD_BUTTON_A)) {
-                cheat_infinite_breathammo = !cheat_infinite_breathammo;
-            }
-        } break;
-        case CheatsOption_InfiniteSupercharge: {
-            if (g_pad_button_edge_down(PAD_BUTTON_A)) {
-                cheat_infinite_supercharge = !cheat_infinite_supercharge;
-            }
-        } break;
-        case CheatsOption_InfiniteInvincibility: {
-            if (g_pad_button_edge_down(PAD_BUTTON_A)) {
-                cheat_infinite_invincibility = !cheat_infinite_invincibility;
-            }
-        } break;
-        case CheatsOption_InfiniteFireArrows: {
-            if (g_pad_button_edge_down(PAD_BUTTON_A)) {
-                cheat_infinite_firearrows = !cheat_infinite_firearrows;
-            }
-        } break;
-        case CheatsOption_InfiniteBlinkBombs: {
-            if (g_pad_button_edge_down(PAD_BUTTON_A)) {
-                cheat_infinite_blinkbombs = !cheat_infinite_blinkbombs;
-            }
-        } break;
+    if (!g_pad_button_edge_down(PAD_BUTTON_A)) {
+        return;
     }
+
+    switch ((CheatsMenuOption)curr_cheats_option) {
+        case CheatsOption_AllAbilities:
+            gGameState.m_PlayerState.m_AbilityFlags |= ABILITY_ALL_PERMANENT_ABILITIES;
+            break;
+        case CheatsOption_InfiniteLockPicks:
+            cheat_infinite_lockpicks = !cheat_infinite_lockpicks;
+            break;
+        case CheatsOption_InfiniteHealth:
+            cheat_infinite_health = !cheat_infinite_health;
+            break;
+        case CheatsOption_InfiniteBreathAmmo:
+            cheat_infinite_breathammo = !cheat_infinite_breathammo;
+            break;
+        case CheatsOption_InfiniteSupercharge:
+            cheat_infinite_supercharge = !cheat_infinite_supercharge;
+            break;
+        case CheatsOption_InfiniteInvincibility:
+            cheat_infinite_invincibility = !cheat_infinite_invincibility;
+            break;
+        case CheatsOption_InfiniteFireArrows:
+            cheat_infinite_firearrows = !cheat_infinite_firearrows;
+            break;
+        case CheatsOption_InfiniteBlinkBombs:
+            cheat_infinite_blinkbombs = !cheat_infinite_blinkbombs;
+            break;
+    }
+
+    PlaySFX(HT_Sound_SFX_GEN_HUD_SELECT);
 }
 
 void handle_cheats(void)
