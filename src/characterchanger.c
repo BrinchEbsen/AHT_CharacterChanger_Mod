@@ -271,7 +271,7 @@ void handle_cheats(void)
         gGameState.m_PlayerState.m_LockPickers = gGameState.m_PlayerState.m_LockPickers_Max;
     }
     if (cheat_infinite_health) {
-        gGameState.m_PlayerState.m_Health = 0xA0;
+        gGameState.m_PlayerState.m_Health = PLAYERSTATE_HEALTH_GOLD;
     }
     if (cheat_infinite_breathammo) {
         gGameState.m_PlayerState.m_FlameBombs       = gGameState.m_PlayerState.m_FlameBombs_Max;
@@ -293,7 +293,7 @@ void handle_cheats(void)
         gGameState.m_PlayerState.m_Xarrows = gGameState.m_PlayerState.m_Xarrows_Max;
     }
     if (cheat_infinite_blinkbombs) {
-        gGameState.m_PlayerState.m_BlinkBombs = 10;
+        gGameState.m_PlayerState.m_BlinkBombs = PLAYERSTATE_BLINK_BOMBS_MAX;
     }
 }
 
