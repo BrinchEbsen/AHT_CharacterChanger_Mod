@@ -4,6 +4,7 @@
 #include <exvector.h>
 #include <player.h>
 #include <camera.h>
+#include <map.h>
 
 #define ABILITY_DOUBLE_JUMP         0x1
 #define ABILITY_HIT_POINT_UPGRADE   0x4
@@ -78,6 +79,8 @@ typedef struct PlayerSetupInfo {
     u8 _pad0[4];
 } PlayerSetupInfo;
 
+SE_Map* PlayerSetupInfo__GetMap(PlayerSetupInfo* self);
+
 _Static_assert(sizeof(PlayerSetupInfo) == 0xc0);
 
 typedef struct PlayerState {
@@ -133,5 +136,8 @@ typedef struct PlayerState {
 } PlayerState;
 
 _Static_assert(sizeof(PlayerState) == 0x128);
+
+extern void PlayerState__SetHealth(PlayerState* self, int health);
+extern void PlayerState__RestartGame(PlayerState* self);
 
 #endif /* PLAYERSTATE_H */

@@ -73,6 +73,13 @@ GUI_Base__CreateObject = 0x801a5be0;
 GUI_Base__Update = 0x801a69c0;
 GUI_Base__v_Draw = 0x801a67ac;
 
+PlayerSetupInfo__GetMap = 0x80068d8c;
+
+PlayerState__SetHealth = 0x800689c0;
+PlayerState__RestartGame = 0x800687ec;
+
+classSEMap_MiniGame = 0x803cc500;
+
 theItemEnv = 0x8046f5f0;
 XSEItemEnv__AddXSEItem = 0x802409d0;
 XSEItem__CreateObject = 0x8023e070;

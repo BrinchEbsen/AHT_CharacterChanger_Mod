@@ -44,4 +44,6 @@ void draw_menu_option(void* pWnd, MenuPage page, int index, int x, int y, RGBA* 
 
 bool Player_TestStartTalk_PreCallHOOK(void* self);
 
+void Player_urghhhImDead_RewriteHOOK(void* self);
+
 #endif /* CHARACTER_CHANGER_H */

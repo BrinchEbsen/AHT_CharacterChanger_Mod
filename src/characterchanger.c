@@ -15,6 +15,7 @@
 #include <playerstate.h>
 #include <gamestate.h>
 #include <player.h>
+#include <map_minigame.h>
 
 bool do_characterchanger_menu = false;
 
@@ -480,4 +481,54 @@ bool Player_TestStartTalk_PreCallHOOK(void* self) {
     }
 
     return true;
+}
+
+inline void standard_death_restart()
+{
+    PlayerState__SetHealth(&gGameState.m_PlayerState, PLAYERSTATE_HEALTH_GOLD);
+    PlayerState__RestartGame(&gGameState.m_PlayerState);
+}
+
+typedef void(*SEMap_MiniGame__SetMiniGameDie_func)(SEMap_MiniGame*);
+
+//Universal player death function to handle all cases
+void Player_urghhhImDead_RewriteHOOK(void* self)
+{
+    SE_Map* map = NULL;
+
+    // Check if a map list index is set
+    s32 map_index = gGameState.m_PlayerState.m_Setup.m_MapListIndex;
+    if (map_index != -1) {
+        map = PlayerSetupInfo__GetMap(&gGameState.m_PlayerState.m_Setup);
+    }
+
+    // Check if the map could be found
+    if (map == NULL) {
+        standard_death_restart();
+        return;
+    }
+
+    // Test if the map is a minigame map
+    GetRuntimeClass_func get_rtc = (GetRuntimeClass_func)map->__vtable->GetRuntimeClass.__pfn;
+    EXRuntimeClass* rtc = get_rtc();
+    
+    if (!class_is_or_inherits_from(rtc, &classSEMap_MiniGame)) {
+        standard_death_restart();
+        return;
+    }
+
+    // Call death function for minigame map
+    SEMap_MiniGame* map_minigame = (SEMap_MiniGame*)map;
+    SEMap_MiniGame__SetMiniGameDie_func set_die
+        = (SEMap_MiniGame__SetMiniGameDie_func)map_minigame->__vtable->SetMiniGameDie.__pfn;
+    set_die(map_minigame);
+
+    // Set various flags
+    void* item = OFFSET_VAL(void*, self, 0);
+    void* animator = OFFSET_VAL(void*, item, 0x144);
+    if (animator != NULL) {
+        u16* animator_itemflags = OFFSET_PTR(u16, animator, 0xc);
+        *animator_itemflags &= (s16)~1;
+    }
+    XSEITEMHANDLER_PLAYER__PLAYER_STATE_FLAGS(self) |= ps_dead;
 }
