@@ -96,6 +96,7 @@ gpPlayerItem = 0x804cb360;
 
 XSEItemhandler_Player__ChangePlayer = 0x8005bb10;
 XSEItemhandler_Player__GetPlayersFileList = 0x80060b18;
+XSEItemHandler_Player__TestStartTalk = 0x8005bd9c;
 
 XSEItemHandler_Blinky__urghhhImDead = 0x80020ebc;
 

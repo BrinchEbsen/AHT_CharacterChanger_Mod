@@ -148,6 +148,18 @@
           "injection_file_address": "0x4143A0",
           "auto_calculate_injection_file_address": true,
           "enabled": true
+        },
+        {
+          "name": "Player_TestStartTalk_PreCall",
+          "code_files": [
+            "./asm/Player_TestStartTalk_PreCall.s"
+          ],
+          "memory_address": "800dc72c",
+          "size": "0",
+          "injection_file": "Start.dol",
+          "injection_file_address": "0xD972C",
+          "auto_calculate_injection_file_address": true,
+          "enabled": true
         }
       ],
       "binary_patches": [],

@@ -42,4 +42,6 @@ void handle_cheats(void);
 void characterchanger_drawhud(void* pWnd);
 void draw_menu_option(void* pWnd, MenuPage page, int index, int x, int y, RGBA* col);
 
+bool Player_TestStartTalk_PreCallHOOK(void* self);
+
 #endif /* CHARACTER_CHANGER_H */

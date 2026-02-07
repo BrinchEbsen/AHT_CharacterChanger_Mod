@@ -44,13 +44,13 @@ inline Players option_to_player(CharacterChangeMenuOption option) {
 bool player_can_move() {
     if (gpPlayer == NULL) return false;
 
-    PlayerModes mode = XSEITEMHANDLER_PLAYER__PLAYER_MODE;
+    PlayerModes mode = XSEITEMHANDLER_PLAYER__PLAYER_MODE(gpPlayer);
     if ((mode == listen) || (mode == listen_water)) {
         return false;
     }
 
-    PStateFlags stateflags = XSEITEMHANDLER_PLAYER__PLAYER_STATE_FLAGS;
-    eMoveFlags moveflags = XSEITEMHANDLER_PLAYER__MOVE_FLAGS;
+    PStateFlags stateflags = XSEITEMHANDLER_PLAYER__PLAYER_STATE_FLAGS(gpPlayer);
+    eMoveFlags moveflags = XSEITEMHANDLER_PLAYER__MOVE_FLAGS(gpPlayer);
 
     if (((stateflags & ps_Locked) != 0) || ((moveflags & mf_IgnoreInput) != 0)) {
         return false;
@@ -203,7 +203,7 @@ void characterchanger_update(void)
 void do_character_menu(void)
 {
     if (g_pad_button_edge_down(PAD_BUTTON_A)) {
-        Players player = XSEITEMHANDLER_PLAYER__PLAYER_TYPE;
+        Players player = XSEITEMHANDLER_PLAYER__PLAYER_TYPE(gpPlayer);
         Players selected_player = option_to_player(curr_ccm_option);
 
         if (player == selected_player) {
@@ -296,7 +296,7 @@ void characterchanger_drawhud(void *pWnd)
         return;
     }
 
-    Players player = XSEITEMHANDLER_PLAYER__PLAYER_TYPE;
+    Players player = XSEITEMHANDLER_PLAYER__PLAYER_TYPE(gpPlayer);
 
     static int text_spacing = 22;
     static int text_buffer = 5;
@@ -467,4 +467,17 @@ void draw_menu_option(void* pWnd, MenuPage page, int index, int x, int y, RGBA *
 
         } break;
     }
+}
+
+//Fix to make the ball gadget unable to talk to NPC's (this only leads to crashes it seems)
+bool Player_TestStartTalk_PreCallHOOK(void* self) {
+    if (!XSEItemHandler_Player__TestStartTalk(self)) {
+        return false;
+    }
+
+    if (XSEITEMHANDLER_PLAYER__PLAYER_TYPE(self) == Player_BallGadget) {
+        return false;
+    }
+
+    return true;
 }

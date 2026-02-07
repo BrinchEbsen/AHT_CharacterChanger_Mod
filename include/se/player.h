@@ -174,10 +174,10 @@ typedef enum BreathType {
 extern void* gpPlayer;
 extern void* gpPlayerItem;
 
-#define XSEITEMHANDLER_PLAYER__PLAYER_TYPE          OFFSET_VAL(Players, gpPlayer, 0x578)
-#define XSEITEMHANDLER_PLAYER__MOVE_FLAGS           OFFSET_VAL(eMoveFlags, gpPlayer, 0x57c)
-#define XSEITEMHANDLER_PLAYER__PLAYER_STATE_FLAGS   OFFSET_VAL(PStateFlags, gpPlayer, 0x580)
-#define XSEITEMHANDLER_PLAYER__PLAYER_MODE          OFFSET_VAL(PlayerModes, gpPlayer, 0x834)
+#define XSEITEMHANDLER_PLAYER__PLAYER_TYPE(self)		OFFSET_VAL(Players, self, 0x578)
+#define XSEITEMHANDLER_PLAYER__MOVE_FLAGS(self)			OFFSET_VAL(eMoveFlags, self, 0x57c)
+#define XSEITEMHANDLER_PLAYER__PLAYER_STATE_FLAGS(self)	OFFSET_VAL(PStateFlags, self, 0x580)
+#define XSEITEMHANDLER_PLAYER__PLAYER_MODE(self)		OFFSET_VAL(PlayerModes, self, 0x834)
 
 // Runs when the game wants to test if the player should enter "Scanmode" (free-fly around through walls).
 // Normally always returns false. Return true to toggle it on/off (from a button press for example).
@@ -185,6 +185,7 @@ extern bool XSEItemHandler_Player__TestScanMode_HOOK(void* player, int current_m
 
 extern void XSEItemhandler_Player__ChangePlayer(Players player, Bool incutscene);
 extern EXHashCode* XSEItemhandler_Player__GetPlayersFileList(Players player);
+extern bool XSEItemHandler_Player__TestStartTalk(void* self);
 
 extern void XSEItemHandler_Blinky__urghhhImDead(void* self);
 
