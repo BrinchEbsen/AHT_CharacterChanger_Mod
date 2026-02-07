@@ -24,7 +24,6 @@ int curr_ccm_option = 0;
 
 int curr_cheats_option = 0;
 
-RGBA selected_col = COLOR_GREEN;
 RGBA unselected_col = COLOR_RGBA(0x40, 0x40, 0x40, 0x80);
 
 Players player_to_load = Player_Undefined;
@@ -317,6 +316,7 @@ void characterchanger_drawhud(void *pWnd)
     int option_count;
     int current_selected_option;
     EXRect menu_rect;
+    RGBA menu_color;
     switch(curr_page) {
         case MenuPage_Characters: {
             option_count = CCMOption_COUNT;
@@ -330,6 +330,8 @@ void characterchanger_drawhud(void *pWnd)
 
             int text_pos_x = menu_offs_x + text_buffer + 30;
             int text_pos_y = menu_offs_y + text_buffer;
+
+            menu_color = COLOR_GREEN;
 
             TEXT_PRINT_COLOR(pWnd, menu_offs_x, menu_offs_y - 25, COLOR_WHITE, "< Characters >");
         } break;
@@ -346,12 +348,14 @@ void characterchanger_drawhud(void *pWnd)
             int text_pos_x = menu_offs_x + text_buffer + 5;
             int text_pos_y = menu_offs_y + text_buffer;
 
+            menu_color = COLOR_LIGHT_BLUE;
+
             TEXT_PRINT_COLOR(pWnd, menu_offs_x, menu_offs_y - 25, COLOR_WHITE, "< Cheats >");
         } break;
     }
 
     XWnd__DrawRect(pWnd, &menu_rect, COLOR_RGBA(0, 0, 0, 0x40));
-    XWnd__DrawGraduatedRectOutline(pWnd, &menu_rect, COLOR_GREEN, COLOR_BLACK, 5, RECT_SIDE_ALL);
+    XWnd__DrawGraduatedRectOutline(pWnd, &menu_rect, menu_color, COLOR_BLACK, 5, RECT_SIDE_ALL);
 
     int text_pos_x = menu_offs_x + text_buffer + 5;
     if (curr_page == MenuPage_Characters) text_pos_x += 25;
@@ -361,7 +365,7 @@ void characterchanger_drawhud(void *pWnd)
     for (int i = 0; i < option_count; i++) {
         Players selected_player = option_to_player(i);
         
-        RGBA* col = (current_selected_option == i) ? &selected_col : &unselected_col;
+        RGBA* col = (current_selected_option == i) ? &menu_color : &unselected_col;
 
         if (curr_page == MenuPage_Characters) {
             EXRect square = {
